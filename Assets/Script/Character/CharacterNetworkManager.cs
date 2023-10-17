@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class CharacterNetworkManager : MonoBehaviour
+public class CharacterNetworkManager : NetworkBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("POSITION")] 
+    public NetworkVariable<Vector3> networkPosition = new NetworkVariable<Vector3>(Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Vector3 networkPositionVelocity;
+    public float networkPositionSmoothTime = 0.1f;
 }
