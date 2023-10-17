@@ -9,4 +9,9 @@ public class TitleScreenManager : MonoBehaviour
     {
         NetworkManager.Singleton.StartHost();
     }
+
+    public void StartNewGame()
+    {
+        StartCoroutine(WorldSaveGameManager.instance.LoadNewGame());
+    }
 }
