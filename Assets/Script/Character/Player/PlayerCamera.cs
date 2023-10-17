@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static PlayerCamera instance;
+
+    private void Awake()
     {
-        
+        if (instance == null)
+        {
+            instance = this; 
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
 }
