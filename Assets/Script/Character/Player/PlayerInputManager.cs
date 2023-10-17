@@ -12,8 +12,11 @@ public class PlayerInputManager : MonoBehaviour
     // 2. Move character based on those values 
 
     PlayerControls playerControls;
-    
-    [SerializeField] Vector2 movement;
+
+    [SerializeField] Vector2 movementInput;
+    [SerializeField] float verticalInput;
+    [SerializeField] float horizontalInput;
+    [SerializeField] float moveAmount;
 
     private void Awake()
     {
@@ -59,7 +62,7 @@ public class PlayerInputManager : MonoBehaviour
         {
             playerControls = new PlayerControls();
 
-            playerControls.PlayerMovement.Movement.performed += i => movement = i.ReadValue<Vector2>();
+            playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
         }
         
         playerControls.Enable();
@@ -69,5 +72,29 @@ public class PlayerInputManager : MonoBehaviour
     {
         // If we destroy this object, unsubscribe from this event
         SceneManager.activeSceneChanged -= OnSceneChange;
+    }
+
+    private void Update()
+    {
+        HandleMovementInput();
+    }
+
+    private void HandleMovementInput()
+    {
+        verticalInput = movementInput.y;
+        horizontalInput = movementInput.x;
+        
+        // Returns the absolute number, (Meaning number without the negative sign, so its always positive
+        moveAmount = Mathf.Clamp01(Mathf.Abs(verticalInput) + Mathf.Abs(horizontalInput));
+        
+        // We clamp the values, so they 0, 0.5 or 1 (optional)
+        if (moveAmount <= 0.5 && moveAmount > 0)
+        {
+            moveAmount = 0.5f;
+        }
+        else if (moveAmount > 0.5 && moveAmount <= 1)
+        {
+            moveAmount = 1;
+        }
     }
 }
