@@ -267,6 +267,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 552626798384626508, guid: d9f4fe78736eb044f8dc6b311714659e,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 4920553591428628426, guid: c84d818af038b4449ad4800b34b9de8c,
+        type: 3}
+    - target: {fileID: 552626798384626508, guid: d9f4fe78736eb044f8dc6b311714659e,
+        type: 3}
       propertyPath: cameraPivotTransform
       value: 
       objectReference: {fileID: 1619058219}
