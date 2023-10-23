@@ -265,17 +265,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 552626798384626508, guid: d9f4fe78736eb044f8dc6b311714659e,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 4920553591428628426, guid: c84d818af038b4449ad4800b34b9de8c,
-        type: 3}
-    - target: {fileID: 552626798384626508, guid: d9f4fe78736eb044f8dc6b311714659e,
-        type: 3}
-      propertyPath: cameraPivotTransform
-      value: 
-      objectReference: {fileID: 1619058219}
     - target: {fileID: 958122195912954410, guid: d9f4fe78736eb044f8dc6b311714659e,
         type: 3}
       propertyPath: m_Name
@@ -1057,12 +1046,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!4 &1619058219 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5546509364582494878, guid: d9f4fe78736eb044f8dc6b311714659e,
-    type: 3}
-  m_PrefabInstance: {fileID: 176401874}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1778587785
 GameObject:
   m_ObjectHideFlags: 0
