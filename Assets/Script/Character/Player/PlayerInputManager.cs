@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerInputManager : MonoBehaviour
 {
     public static PlayerInputManager instance;
+    public PlayerManager player;
     
     // Think about goals in steps
     // 2. Move character based on those values 
@@ -120,6 +121,14 @@ public class PlayerInputManager : MonoBehaviour
         {
             moveAmount = 1;
         }
+        
+        //Why do we pass 0 on the horizontal? Because we only want non-strafing movement
+        // We used the horizontal when we are strafing or locked on
+        
+        // If we are not locked on, only use the move amount
+        player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount);
+        
+        // If we are locked on pass the horizontal movement as well
     }
 
     private void HandleCameraMovementInput()
